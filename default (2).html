@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A&N Cleaning Service - Feedback</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>A&N Cleaning Service</h1>
+        <nav>
+            <ul>
+                <li><a href="#feedback">Feedback</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="feedback">
+            <h2>Leave Your Feedback</h2>
+            <form id="feedbackForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating and Review</title>
+    <style>
+        .star {
+            cursor: pointer;
+            font-size: 24px;
+            color: gray;
+        }
+        .star.selected {
+            color: gold;
+        }
+        #reviews {
+            margin-top: 20px;
+        }
+        .review {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Rate Our Work</h2>
+<div><link rel="manifest" href="manifest.json">
+    <span class="star" data-value="1">★</span>
+    <span class="star" data-value="2">★</span>
+    <span class="star" data-value="3">★</span>
+    <span class="star" data-value="4">★</span>
+    <span class="star" data-value="5">★</span>
+</div>
+<input type="text" id="reviewText" placeholder="Write your review here..." />
+<button id="submitReview">Submit Review</button>
+
+<div id="reviews"></div>
+
+<script>
+    const stars = document.querySelectorAll('.star');
+    let rating = 0;
+
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            rating = star.getAttribute('data-value');
+            stars.forEach(s => s.classList.remove('selected'));
+            for (let i = 0; i < rating; i++) {
+                stars[i].classList.add('selected');
+            }
+        });
+    });
+
+    document.getElementById('submitReview').addEventListener('click', () => {
+        const reviewText = document.getElementById('reviewText').value;
+        if (rating > 0 && reviewText.trim() !== "") {
+            const reviewsDiv = document.getElementById('reviews');
+            const reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.innerHTML = `<strong>Rating: ${rating} stars</strong><p>${reviewText}</p>`;
+            reviewsDiv.appendChild(reviewDiv);
+            document.getElementById('reviewText').value = '';
+            rating = 0;
+            stars.forEach(s => s.classList.remove('selected'));
+        } else {
+            alert('Please provide a rating and a review.');
+        }
+    });
+</script>
+<h2>About Us</h2>
+<p> Growing up in a family-owned cleaning business, Nathan and I (Aidan) were practically raised with a broom in one hand and a dust cloth in the other. From a young age, we learned the ropes—scrubbing floors, wiping down counters, and making sure every job was done right. We saw how our parents built their reputation through hard work, attention to detail, and a commitment to customer satisfaction. But as we got older, we noticed that many cleaning services were priced out of reach for the average person. That’s when we decided we could do things differently. We wanted to bring the same level of quality and professionalism we learned growing up, but with a focus on affordability and reliability.
+
+So, we set out to start our own business, driven by the values we grew up with: hard work, integrity, and fair pricing. Our goal is simple—offer top-notch cleaning services that don’t break the bank. Whether it’s a home, office, or commercial space, we’re dedicated to doing the job right every time. With the experience we’ve gained over the years, we’ve streamlined our processes to provide high-quality cleaning without the hefty price tag. We want to make sure everyone, no matter their budget, has access to a clean, fresh space—because we believe that great cleaning should be affordable for all.
+</p>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email:   ancleaningservice20@gmail.com</p>
+            <p>Phone: (931) 623-6152 </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 A&N Cleaning Service</p>
+    </footer>
+</body>
+</html>
